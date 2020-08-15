@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Surprise !Store - store{% endblock %}
+{% block style %}
+<style>
+div{
+font-size:15px;}
+span{
+color:red;}
+</style>
+{% endblock %}
+
+{% block content %}
+{% from "includes/_formHelper.html" import render_field %}
+<h1>User details</h1>
+<div>
+    Id : <span>{{ id }}</span><br>
+    Name : <span>{{ name }}</span><br>
+    Email : <span>{{ email }}</span><br>
+    Password : <span>{{ password }}</span>
+</div>
+
+{% if id==1 %}
+
+    <form method="get" action="/admin_info">
+        <button> Access Admin's User Details Page </button>
+    </form>
+
+    <form method="get" action="/admin">
+        <button type="submit">Access Admin Home Page</button>
+    </form>
+
+{% endif %}
+
+
+{% endblock %}
