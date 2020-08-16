@@ -831,9 +831,9 @@ def login():
             flash('Invalid email, password or token.')
             if request.cookies.get('fc'):
                 num= int(request.cookies.get('fc'))+1
-                resp.set_cookie('fc', str(num), httponly=False, secure=False)
+                resp.set_cookie('fc', str(num), httponly=True, secure=True)
             else:
-                resp.set_cookie('fc', '0', httponly=False, secure=False)
+                resp.set_cookie('fc', '0', httponly=True, secure=True)
             return resp
 
         # log user in
@@ -862,7 +862,7 @@ def login():
         else:
             resp = make_response(redirect('/'))
         name = user_detail[1]+user_detail[2]
-        resp.set_cookie('username', name, httponly=False, secure=False)
+        resp.set_cookie('username', name, httponly=False, secure=True)
         print(session['id'])
         print(session['is_admin'])
         return resp
